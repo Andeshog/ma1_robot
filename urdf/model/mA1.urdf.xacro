@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="milliAmpere1">
+    <material name="gray">
+        <color rgba="0.8 0.8 0.8 1"/>
+    </material>
+    <link name="base_link">
+        <visual>
+            <origin xyz="0 0 -0.4" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://ma1_robot/meshes/ma1.stl"/>
+            </geometry>
+            <material name="gray"/>
+        </visual>
+    </link>
+
+    <link name = "bow_starboard_thruster"/>
+    <joint name = "bow_starboard_thruster_joint" type = "fixed">
+        <origin xyz = "1.8 0.8 -0.3" rpy = "0.0 0.0 0.0"/>
+        <parent link = "base_link"/>
+        <child link = "bow_starboard_thruster"/>
+    </joint>
+
+    <link name = "stern_starboard_thruster"/>
+    <joint name = "stern_starboard_thruster_joint" type = "fixed">
+        <origin xyz = "-1.8 0.8 -0.3" rpy = "0.0 0.0 0.0"/>
+        <parent link = "base_link"/>
+        <child link = "stern_starboard_thruster"/>
+    </joint>
+
+    <link name = "stern_port_thruster"/>
+    <joint name = "stern_port_thruster_joint" type = "fixed">
+        <origin xyz = "-1.8 -0.8 -0.3" rpy = "0.0 0.0 0.0"/>
+        <parent link = "base_link"/>
+        <child link = "stern_port_thruster"/>
+    </joint>
+
+    <link name = "bow_port_thruster"/>
+    <joint name = "bow_port_thruster_joint" type = "fixed">
+        <origin xyz = "1.8 -0.8 -0.3" rpy = "0.0 0.0 0.0"/>
+        <parent link = "base_link"/>
+        <child link = "bow_port_thruster"/>
+    </joint>
+
+</robot>
